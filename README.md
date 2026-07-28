@@ -1,4 +1,4 @@
-# 🏺 Casa Curadoria | Portfólio B2B
+# Casa Curadoria | Portfólio B2B
 
 > **Live Demo:** [casacuradoria.art](https://casacuradoria.art)
 
@@ -6,7 +6,7 @@ Repositório oficial do portfólio web da **Casa Curadoria**. Desenvolvido para 
 
 ---
 
-## 🎨 Conceito e Direção de Arte
+## Conceito e Direção de Arte
 O design do site foi construído sob o conceito de uma **"Galeria de Arte com Borogodô"**. A interface utiliza respiro visual (white space), tipografia serifada elegante e uma paleta de cores exclusivas para transmitir sofisticação, calor e brasilidade.
 
 **Paleta de Cores (Tailwind Config):**
