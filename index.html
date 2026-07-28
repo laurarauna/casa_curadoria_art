@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Curadoria</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        principal: '#721f16', /* Vermelho Profundo */
+                        fundo: '#ebd4ac',     /* Bege Areia */
+                        detalhe1: '#576e36',  /* Verde Oliva */
+                        detalhe2: '#ffb236',  /* Amarelo Ouro */
+                        detalhe3: '#ef4f28',  /* Laranja Vibrante */
+                    },
+                    fontFamily: {
+                        sans: ['Aileron', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Textura granulada estilo papel impresso */
+        .bg-grain { position: relative; }
+        .bg-grain::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 50;
+        }
+
+        /* Giro suave da Estrela */
+        @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+
+        /* Animações de entrada (Galeria) */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-400 { transition-delay: 400ms; }
+    </style>
+</head>
+<body class="antialiased font-sans bg-fundo text-principal overflow-x-hidden">
+
+    <!-- Container Global com Textura -->
+    <div class="bg-grain min-h-screen">
+
+        <!-- 1. NOVA CAPA (ESTÉTICA GALERIA DE ARTE) -->
+        <section class="min-h-[90vh] flex flex-col justify-center items-center relative px-6 text-center">
+            
+            <!-- Container da Logo -->
+            <div class="w-48 md:w-64 mb-16 reveal active flex justify-center items-center">
+                
+                <?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 869.27 869.27">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ef4f28;
+      }
+
+      .cls-2 {
+        fill: #ffb236;
+        stroke: #721f16;
+        stroke-miterlimit: 10;
+        stroke-width: .8px;
+      }
+
+      .cls-3 {
+        fill: #721f16;
+      }
+    </style>
+  </defs>
+  <g>
+    <polygon class="cls-3" points="567.46 682.4 131.93 682.4 131.93 488.83 159.15 464.63 186.37 440.43 213.59 416.24 240.81 392.04 268.03 367.85 268.03 367.84 268.04 367.84 295.25 343.66 295.25 343.65 295.26 343.65 322.48 319.46 349.69 295.26 349.69 295.26 349.7 295.26 376.91 271.07 376.91 271.06 376.92 271.06 404.14 246.87 431.35 271.06 458.57 295.26 458.58 295.26 485.8 319.46 540.23 367.84 540.24 367.84 540.24 367.85 567.46 392.04 567.46 681.88 567.46 682.4"/>
+    <path class="cls-2" d="M567.52,186.93l23.36,162.17s.05.07.09.05l129.99-59.33c.07-.03.13.06.07.11l-96.91,92.31s-.02.1.03.11l113.13,20.65c.07.01.07.11,0,.13l-113.16,26.04s-.07.07-.04.11l78.9,100.17c.05.06-.02.14-.09.1l-111.93-67.16s-.1,0-.1.05l-23.36,219.32c0,.08-.12.08-.13,0l-23.36-219.31c0-.05-.06-.08-.11-.05l-117.38,87.83c-.06.05-.14-.03-.09-.09l84.37-120.86s0-.09-.04-.1l-127.52-26.65c-.07-.02-.07-.12,0-.13l127.5-20.05c.05,0,.07-.07.04-.11l-106.37-135c-.05-.06.03-.14.09-.09l139.4,101.98s.1,0,.11-.04l23.35-162.15c.01-.08.12-.08.13,0Z"/>
+  </g>
+  <g>
+    <path class="cls-1" d="M150.02,589.27c0-11.85,8.45-18.4,19.22-18.4,5,0,8.97,1.39,11.7,3.35l-3.09,9.84c-2.01-1.75-4.59-3.14-7.83-3.14-4.54,0-8.25,2.68-8.25,8.35s3.97,8.35,8.19,8.35c3.5,0,6.96-1.7,8.45-3.25l3.3,8.81c-2.78,2.73-6.75,4.48-12.37,4.48-10.93,0-19.33-6.54-19.33-18.4Z"/>
+    <path class="cls-1" d="M196.61,571.49h12.88l12.37,35.56h-12.27l-1.39-5h-10.31l-1.39,5h-12.27l12.37-35.56ZM206.04,593.19l-2.99-9.9-2.99,9.9h5.98Z"/>
+    <path class="cls-1" d="M223.61,602.83l5.15-8.3c2.89,2.63,6.29,3.87,9.12,3.87,1.75,0,2.99-.67,2.99-1.7,0-.88-.82-1.55-2.58-2.11l-4.79-1.55c-4.95-1.6-8.5-5.15-8.5-10.57,0-8.19,7.32-11.49,14.43-11.49,5,0,9.74,1.7,12.83,4.28l-4.43,8.3c-2.68-2.01-6.13-3.4-8.81-3.4-1.7,0-2.53.46-2.53,1.34,0,.83.67,1.49,4.54,2.73l3.14,1.03c5.31,1.75,8.3,4.95,8.3,10.31,0,8.5-7.68,12.01-15.15,12.01-4.54,0-9.12-1.19-13.71-4.74Z"/>
+    <path class="cls-1" d="M266.18,571.49h12.88l12.37,35.56h-12.27l-1.39-5h-10.31l-1.39,5h-12.27l12.37-35.56ZM275.61,593.19l-2.99-9.9-2.99,9.9h5.98Z"/>
+    <path class="cls-1" d="M150.02,642.07c0-11.85,8.45-18.4,19.22-18.4,5,0,8.97,1.39,11.7,3.35l-3.09,9.84c-2.01-1.75-4.59-3.14-7.83-3.14-4.54,0-8.25,2.68-8.25,8.35s3.97,8.35,8.19,8.35c3.5,0,6.96-1.7,8.45-3.25l3.3,8.81c-2.78,2.73-6.75,4.48-12.37,4.48-10.93,0-19.33-6.54-19.33-18.4Z"/>
+    <path class="cls-1" d="M186.56,644.7v-20.41h11.65v20.98c0,3.35,1.49,5.15,4.59,5.15s4.59-1.8,4.59-5.15v-20.98h11.65v20.41c0,11.44-6.44,15.77-16.23,15.77s-16.23-4.33-16.23-15.77Z"/>
+    <path class="cls-1" d="M225.88,624.29h15.46c8.66,0,14.69,3.71,14.69,11.34,0,5.05-1.96,8.35-5.93,10.72l7.99,13.5h-13.4l-5.88-11.85h-1.29v11.85h-11.65v-35.56ZM244.28,636.15c0-2.11-1.75-3.09-3.87-3.09h-2.94v6.19h2.94c2.32,0,3.87-.98,3.87-3.09Z"/>
+    <path class="cls-1" d="M272.78,624.29h12.88l12.37,35.56h-12.27l-1.39-5h-10.31l-1.39,5h-12.27l12.37-35.56ZM282.21,645.99l-2.99-9.9-2.99,9.9h5.98Z"/>
+    <path class="cls-1" d="M301.02,624.29h13.3c12.37,0,20.2,5.41,20.2,17.78s-7.83,17.78-20.2,17.78h-13.3v-35.56ZM322.77,642.07c0-5.21-2.22-8.14-7.47-8.14h-2.63v16.29h2.63c5.21,0,7.47-2.89,7.47-8.14Z"/>
+    <path class="cls-1" d="M383.52,624.29h15.46c8.66,0,14.69,3.71,14.69,11.34,0,5.05-1.96,8.35-5.93,10.72l7.99,13.5h-13.4l-5.88-11.85h-1.29v11.85h-11.65v-35.56ZM401.92,636.15c0-2.11-1.75-3.09-3.87-3.09h-2.94v6.19h2.94c2.32,0,3.87-.98,3.87-3.09Z"/>
+    <path class="cls-1" d="M420.11,624.29h11.65v35.56h-11.65v-35.56Z"/>
+    <path class="cls-1" d="M448.15,624.29h12.88l12.37,35.56h-12.27l-1.39-5h-10.31l-1.39,5h-12.27l12.37-35.56ZM457.58,645.99l-2.99-9.9-2.99,9.9h5.98Z"/>
+    <path class="cls-1" d="M359.86,620.91l2.8,12.38,10.73-6.77c.78-.49,1.68.41,1.19,1.19l-6.77,10.73,12.38,2.8c.9.2.9,1.48,0,1.69l-12.38,2.8,6.77,10.73c.49.78-.41,1.68-1.19,1.19l-10.73-6.77-2.8,12.38c-.2.9-1.48.9-1.69,0l-2.8-12.38-10.73,6.77c-.78.49-1.68-.41-1.19-1.19l6.77-10.73-12.38-2.8c-.9-.2-.9-1.48,0-1.69l12.38-2.8-6.77-10.73c-.49-.78.41-1.68,1.19-1.19l10.73,6.77,2.8-12.38c.2-.9,1.48-.9,1.69,0Z"/>
+  </g>
+</svg>
+
+            </div>
+
+            <!-- Frase de Impacto (Tagline) -->
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif italic text-principal leading-[1.1] reveal active delay-200 max-w-5xl">
+                Curadoria autêntica  <br class="hidden md:block"> para marcas que buscam mais que o óbvio.
+            </h1>
+
+            <!-- Detalhe de "Brasilidade" e Guia de Rolagem -->
+            <div class="mt-20 flex flex-col items-center reveal active delay-400">
+                <div class="w-3 h-3 bg-detalhe3 rounded-full mb-6"></div>
+                <div class="w-px h-24 bg-principal/30"></div>
+            </div>
+            
+        </section>
+
+        <!-- 2. QUEM SOMOS (Com Vídeo) -->
+        <section class="max-w-6xl mx-auto px-8 py-24 grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <h2 class="text-5xl font-bold mb-8">Quem somos</h2>
+                <div class="space-y-6 text-lg font-medium leading-relaxed">
+                    <p>A Casa Curadoria nasceu da nossa paixão por decoração e da dificuldade que encontrávamos em descobrir produtos diferentes, com personalidade e identidade.</p>
+                    <p>Somos dois jovens que decidiram transformar esse olhar em um espaço de curadoria, inspiração e troca.</p>
+                    <p>Mais do que criar um perfil de achadinhos, queremos construir uma conexão verdadeira com quem nos acompanha, compartilhando peças especiais, moods e conteúdos sobre decoração em geral.</p>
+                </div>
+            </div>
+            
+            <div class="flex justify-center items-center relative reveal delay-200">
+                <div class="absolute inset-0 bg-principal/10 transform rotate-3 rounded-3xl -z-10 w-full max-w-sm mx-auto"></div>
+                <div class="w-full max-w-sm bg-white rounded-2xl overflow-hidden shadow-2xl border-4 border-fundo hover:scale-[1.02] transition-transform duration-500">
+                    <iframe src="https://www.instagram.com/p/DY8MwhVM9Kw/embed" width="100%" height="580" frameborder="0" scrolling="no" allowtransparency="true" class="block w-full"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. DADOS DE AUDIÊNCIA -->
+        <section class="bg-principal text-fundo py-20 px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex items-center gap-4 mb-4 reveal">
+                    <div class="w-4 h-4 bg-detalhe2 rounded-full"></div>
+                    <h2 class="text-4xl md:text-5xl font-bold italic uppercase">Dados de Audiência</h2>
+                </div>
+                <hr class="border-fundo/30 mb-16 reveal">
+
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="reveal">
+                        <div class="bg-detalhe3 text-fundo text-center rounded-full py-2 mb-8 font-bold text-sm tracking-widest uppercase">Seguidores</div>
+                        <div class="mb-8">
+                            <p class="text-6xl font-bold flex items-baseline gap-2"><span id="stat-seguidores">--</span>K</p>
+                            <p class="text-detalhe2 font-bold text-sm mt-1" id="stat-crescimento">-- NO ÚLTIMO MÊS</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="font-bold text-sm mb-4 uppercase">% FAIXA ETÁRIA</h3>
+                            <div class="flex items-center gap-4 text-xs font-bold"><span class="w-16">18-24 anos</span><div class="h-3 bg-detalhe2 rounded-r-full transition-all duration-1000 w-0" style="width: 15%;"></div>5,3</div>
+                            <div class="flex items-center gap-4 text-xs font-bold"><span class="w-16">25-34 anos</span><div class="h-3 bg-detalhe2 rounded-r-full transition-all duration-1000 delay-100 w-0" style="width: 100%;"></div>36,5</div>
+                            <div class="flex items-center gap-4 text-xs font-bold"><span class="w-16">35-44 anos</span><div class="h-3 bg-detalhe2 rounded-r-full transition-all duration-1000 delay-200 w-0" style="width: 70%;"></div>25,3</div>
+                            <div class="flex items-center gap-4 text-xs font-bold"><span class="w-16">45-54 anos</span><div class="h-3 bg-detalhe2 rounded-r-full transition-all duration-1000 delay-300 w-0" style="width: 45%;"></div>16,6</div>
+                        </div>
+                    </div>
+
+<div class="md:border-l border-fundo/30 md:pl-12 reveal delay-100">
+        <div class="bg-detalhe3 text-fundo text-center rounded-full py-2 mb-8 font-bold text-sm tracking-widest uppercase">Principais Cidades</div>
+        <div class="space-y-4 mt-12 relative">
+            <svg class="absolute -left-10 top-0 w-48 h-48 opacity-20" fill="none" stroke="#ffb236" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            
+            <div class="bg-detalhe2 text-principal font-bold px-4 py-3 rounded-full inline-block shadow-lg relative z-10 w-full text-center hover:scale-105 transition-transform whitespace-nowrap text-xs md:text-sm">SÃO PAULO, SP (20%)</div>
+            <div class="bg-detalhe2 text-principal font-bold px-4 py-3 rounded-full inline-block shadow-lg relative z-10 w-10/12 text-center ml-auto block hover:scale-105 transition-transform whitespace-nowrap text-xs md:text-sm">RIO DE JANEIRO, RJ (10%)</div>
+            <div class="bg-detalhe2 text-principal font-bold px-4 py-3 rounded-full inline-block shadow-lg relative z-10 w-3/4 text-center hover:scale-105 transition-transform whitespace-nowrap text-xs md:text-sm">BELO HORIZONTE, MG (4%)</div>
+        </div>
+    </div>
+
+                    <div class="reveal delay-200">
+                        <div class="bg-detalhe3 text-fundo text-center rounded-full py-2 mb-8 font-bold text-sm tracking-widest uppercase">Interesses</div>
+                        <div class="space-y-6 mt-12">
+                            <div class="flex items-center gap-0 hover:translate-x-2 transition-transform"><div class="w-8 h-8 rounded-full bg-detalhe3 z-10"></div><div class="bg-principal border border-detalhe3 text-detalhe3 font-bold px-6 py-2 rounded-r-full flex-grow text-center -ml-4 uppercase text-sm">Decoração</div></div>
+                            <div class="flex items-center gap-0 hover:translate-x-2 transition-transform"><div class="w-8 h-8 rounded-full bg-detalhe3 z-10"></div><div class="bg-principal border border-detalhe3 text-detalhe3 font-bold px-6 py-2 rounded-r-full flex-grow text-center -ml-4 uppercase text-sm">Achados Para Casa</div></div>
+                            <div class="flex items-center gap-0 hover:translate-x-2 transition-transform"><div class="w-8 h-8 rounded-full bg-detalhe3 z-10"></div><div class="bg-principal border border-detalhe3 text-detalhe3 font-bold px-6 py-2 rounded-r-full flex-grow text-center -ml-4 uppercase text-sm">Home Design</div></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs mt-16 font-medium text-fundo/70 reveal">Fonte: Meta Business Suite - Dados do Instagram @casa_curadoria</p>
+            </div>
+        </section>
+
+        <!-- 4. NÚMEROS QUE IMPORTAM -->
+        <section class="max-w-6xl mx-auto px-8 py-24">
+            <h2 class="text-4xl md:text-5xl font-bold italic mb-4 reveal">NÚMEROS QUE IMPORTAM</h2>
+            <p class="text-lg italic mb-6 max-w-3xl reveal delay-100">Nosso conteúdo chega longe e traz gente nova todos os dias. Mas é o nosso borogodô que faz a nossa comunidade interagir, confiar e consumir de verdade.</p>
+            <hr class="border-principal mb-16 border-2 reveal delay-200">
+
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="space-y-12">
+                    <div class="reveal">
+                        <p class="font-bold uppercase tracking-wider text-sm mb-2">Taxa de Engajamento</p>
+                        <p class="text-6xl md:text-7xl font-bold flex items-center gap-4">
+                            <span id="stat-engajamento">--</span>%
+                            <!-- ESTRELA ANIMADA EM SVG -->
+                            <svg class="w-16 h-16 animate-spin-slow text-detalhe3" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 0L13.3 8.2L20.5 3.5L16.5 10.2L24 12L16.5 13.8L20.5 20.5L13.3 15.8L12 24L10.7 15.8L3.5 20.5L7.5 13.8L0 12L7.5 10.2L3.5 3.5L10.7 8.2L12 0Z"/>
+                            </svg>
+                        </p>
+                    </div>
+                    <div class="reveal delay-100">
+                        <p class="font-bold uppercase tracking-wider text-sm mb-2">Impressões Mensais</p>
+                        <p class="text-5xl md:text-6xl font-bold" id="stat-impressoes">--K</p>
+                    </div>
+                </div>
+
+                <div class="reveal delay-200">
+                    <h3 class="text-4xl font-serif italic mb-2 text-principal">Relacionamento com a base</h3>
+                    <p class="text-detalhe3 font-bold uppercase tracking-widest text-sm mb-8">Média por Post</p>
+                    <div class="space-y-6 text-2xl font-bold">
+                        <div class="flex justify-between items-end border-b border-principal/20 pb-2 hover:border-principal transition-colors"><span class="uppercase text-sm tracking-widest">Alcance</span><span id="stat-alcance">--</span></div>
+                        <div class="flex justify-between items-end border-b border-principal/20 pb-2 hover:border-principal transition-colors"><span class="uppercase text-sm tracking-widest">Salvamento</span><span id="stat-salvos">--</span></div>
+                        <div class="flex justify-between items-end border-b border-principal/20 pb-2 hover:border-principal transition-colors"><span class="uppercase text-sm tracking-widest">Compartilhamento</span><span id="stat-compartilhamentos">--</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. O EFEITO VITRINE -->
+        <section class="bg-principal py-20 px-8 text-fundo border-y-8 border-detalhe2">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold italic mb-6 reveal">O NOSSO EFEITO VITRINE</h2>
+                <p class="text-fundo/90 mb-12 max-w-2xl mx-auto text-lg leading-relaxed reveal delay-100">Quando indicamos um achadinho, nossa comunidade entra em modo de compra. Em apenas 30 dias de tráfego 100% orgânico, geramos:</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-12">
+                    <div class="bg-fundo text-principal p-8 rounded-[40px] w-full md:w-1/2 shadow-xl border-4 border-detalhe2 transform -rotate-2 hover:rotate-0 transition-transform duration-300 reveal delay-200">
+                        <p class="text-6xl font-bold">31.000+</p><p class="uppercase tracking-widest text-sm mt-2 font-bold text-detalhe1">Cliques em Links</p>
+                    </div>
+                    <div class="bg-fundo text-principal p-8 rounded-[40px] w-full md:w-1/2 shadow-xl border-4 border-detalhe2 transform rotate-2 hover:rotate-0 transition-transform duration-300 reveal delay-300">
+                        <p class="text-6xl font-bold">R$ 57K</p><p class="uppercase tracking-widest text-sm mt-2 font-bold text-detalhe1">Vendas Geradas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. PACOTES B2B -->
+        <section class="max-w-5xl mx-auto px-8 pt-24 pb-16">
+            <h2 class="text-4xl font-bold italic mb-2 text-center text-principal reveal">FORMATOS ESTRATÉGICOS</h2>
+            <p class="text-center font-bold text-detalhe1 tracking-widest uppercase mb-16 reveal delay-100">O atalho para a confiança do seu cliente</p>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- Descoberta -->
+                <div class="bg-transparent border-2 border-principal p-8 rounded-3xl hover:bg-principal hover:text-fundo transition duration-300 group flex flex-col justify-between reveal">
+                    <div>
+                        <h3 class="text-3xl font-serif italic mb-2 group-hover:-translate-y-1 transition-transform">Descoberta</h3>
+                        <p class="text-sm font-bold uppercase tracking-widest mb-6 opacity-70 group-hover:opacity-100 transition-opacity">Apresentação de marca</p>
+                        <ul class="space-y-3 font-medium mb-8">
+                            <li>• 1 Vídeo Collab no Feed (até 45s)</li><li>• 1 Sequência de 3 Stories</li><li>• Ideal para marcas que querem entrar no radar da nossa comunidade de forma autêntica e nativa.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Qualificação (Destaque) -->
+                <div class="bg-principal text-fundo p-8 rounded-3xl relative shadow-2xl transform md:scale-105 hover:scale-110 transition-transform duration-300 flex flex-col justify-between reveal delay-100">
+                    <div class="absolute -top-4 right-8 bg-detalhe3 text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest">Nossa Especialidade</div>
+                    <div>
+                        <h3 class="text-3xl font-serif italic mb-2">Qualificação</h3>
+                        <p class="text-sm font-bold text-detalhe2 uppercase tracking-widest mb-6">Educação e Prova Social</p>
+                        <ul class="space-y-3 font-medium mb-8">
+                            <li>• 1 Vídeo Review profundo (Feed/Reels)</li><li>• 3 Sequências de 5 Stories explicativos</li><li>• O formato perfeito para produtos de alto valor agregado (móveis, peças de design). Nós educamos, atestamos a qualidade e preparamos o seu lead para uma compra refletida.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tráfego -->
+                <div class="bg-transparent border-2 border-principal p-8 rounded-3xl hover:bg-principal hover:text-fundo transition duration-300 group flex flex-col justify-between reveal delay-200">
+                    <div>
+                        <h3 class="text-3xl font-serif italic mb-2 group-hover:-translate-y-1 transition-transform">Tráfego</h3>
+                        <p class="text-sm font-bold uppercase tracking-widest mb-6 opacity-70 group-hover:opacity-100 transition-opacity">Direcionamento de público</p>
+                        <ul class="space-y-3 font-medium mb-8">
+                            <li>• 1 Post Carrossel no Feed</li><li>• 2 Sequências de 4 Stories (com Link)</li><li>• Foco em levar a nossa base, já familiarizada com a sua marca, diretamente para o seu e-commerce ou WhatsApp.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- UGC -->
+                <div class="bg-transparent border-2 border-principal p-8 rounded-3xl hover:bg-principal hover:text-fundo transition duration-300 group flex flex-col justify-between reveal delay-300">
+                    <div>
+                        <h3 class="text-3xl font-serif italic mb-2 group-hover:-translate-y-1 transition-transform">Anúncios (UGC)</h3>
+                        <p class="text-sm font-bold uppercase tracking-widest mb-6 opacity-70 group-hover:opacity-100 transition-opacity">Sem postagem no nosso perfil</p>
+                        <ul class="space-y-3 font-medium mb-8">
+                            <li>• 1 Vídeo (até 45s) para tráfego pago</li><li>• Conteúdo 100% autêntico (User Generated Content)</li><li>• Entregue direto para a sua equipe rodar anúncios (Ads) usando a nossa imagem de autoridade.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center reveal">
+                <p class="text-lg font-medium text-principal mb-6">Todos os formatos incluem roteiro, direção de arte, gravação e 1 revisão.</p>
+                <a href="mailto:casacuradorias@gmail.com" class="inline-block bg-principal text-fundo font-bold py-4 px-12 rounded-full shadow-lg hover:bg-detalhe1 hover:text-white transition duration-300 uppercase tracking-widest text-sm hover:-translate-y-2">
+                    Solicitar Orçamento
+                </a>
+            </div>
+        </section>
+
+        <!-- FOOTER / CTA PRINCIPAL -->
+        <footer class="bg-principal text-fundo py-20 text-center border-t-8 border-detalhe2">
+            <h2 class="text-4xl font-serif italic mb-6 reveal">Vamos construir algo juntos?</h2>
+            <p class="mb-10 max-w-md mx-auto text-lg text-fundo/80 reveal delay-100">Entre em contato para consultarmos nossa agenda e alinharmos as expectativas da sua campanha.</p>
+            <a href="mailto:casacuradorias@gmail.com" class="inline-flex items-center gap-3 bg-detalhe2 text-principal font-bold py-4 px-10 rounded-full shadow-lg hover:bg-fundo hover:scale-105 transition duration-300 uppercase tracking-widest text-sm reveal delay-200">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                casacuradorias@gmail.com
+            </a>
+        </footer>
+
+    </div>
+
+    <!-- LÓGICA DE DADOS -->
+    <script>
+        const mockData = {
+            "Seguidores": 11.5,
+            "Crescimento_30d": "+4,5K",
+            "Media_Alcance_Post": "10.8K",
+            "Taxa_Engajamento_%": 14.6,
+            "Media_Salvos_Post": 405,
+            "Media_Compartilhamentos_Post": 183,
+            "Impressoes_Mensais": 142
+        };
+
+        document.getElementById('stat-seguidores').innerText = mockData.Seguidores;
+        document.getElementById('stat-crescimento').innerText = mockData.Crescimento_30d + " NO ÚLTIMO MÊS";
+        document.getElementById('stat-alcance').innerText = mockData.Media_Alcance_Post;
+        document.getElementById('stat-engajamento').innerText = mockData['Taxa_Engajamento_%'];
+        document.getElementById('stat-salvos').innerText = mockData.Media_Salvos_Post;
+        document.getElementById('stat-compartilhamentos').innerText = mockData.Media_Compartilhamentos_Post;
+        document.getElementById('stat-impressoes').innerText = mockData.Impressoes_Mensais + "K";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
