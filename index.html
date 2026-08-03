@@ -164,26 +164,20 @@
                     <div class="reveal">
                         <div class="bg-detalhe3 text-fundo text-center rounded-full py-2 mb-8 font-bold text-sm tracking-widest uppercase hover:bg-fundo hover:text-detalhe3 transition-colors cursor-default">Seguidores</div>
                         <div class="mb-8">
-                            <!-- GATILHO ADICIONADO: id="val-seguidores" -->
                             <p class="text-5xl md:text-6xl font-bold flex items-baseline gap-2"><span class="counter" id="val-seguidores" data-target="11.5">0</span>K</p>
-                            <!-- GATILHO ADICIONADO: id="stat-crescimento" -->
                             <p class="text-detalhe2 font-bold text-sm mt-1" id="stat-crescimento">+4.5K NO ÚLTIMO MÊS</p>
                         </div>
                         
-                        <!-- CONTAINERS ATUALIZADOS AQUI PARA O JAVASCRIPT INJETAR -->
                         <div class="space-y-4" id="container-idades">
                             <h3 class="font-bold text-sm mb-4 uppercase">% FAIXA ETÁRIA</h3>
-                            <!-- O JavaScript vai injetar as barras aqui automaticamente -->
                         </div>
                     </div>
 
                     <div class="md:border-l border-fundo/30 md:pl-12 reveal delay-100">
                         <div class="bg-detalhe3 text-fundo text-center rounded-full py-2 mb-8 font-bold text-sm tracking-widest uppercase hover:bg-fundo hover:text-detalhe3 transition-colors cursor-default">Principais Cidades</div>
                         
-                        <!-- CONTAINERS ATUALIZADOS AQUI PARA O JAVASCRIPT INJETAR -->
                         <div class="space-y-4 mt-12 relative" id="container-cidades">
                             <svg class="absolute -left-10 top-0 w-48 h-48 opacity-20 parallax-el" data-speed="-0.05" fill="none" stroke="#ffb236" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            <!-- O JavaScript vai injetar as pílulas de cidades aqui automaticamente -->
                         </div>
                     </div>
 
@@ -211,9 +205,7 @@
                     <div class="reveal">
                         <p class="font-bold uppercase tracking-wider text-sm mb-2">Taxa de Engajamento</p>
                         <p class="text-5xl md:text-6xl lg:text-7xl font-bold flex items-center gap-4">
-                            <!-- GATILHO ADICIONADO: id="val-engajamento" -->
                             <span class="counter" id="val-engajamento" data-target="14.6">0</span>%
-                            <!-- ESTRELA ANIMADA EM SVG -->
                             <svg class="w-12 h-12 md:w-16 md:h-16 animate-spin-slow text-detalhe3 parallax-el" data-speed="0.15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 0L13.3 8.2L20.5 3.5L16.5 10.2L24 12L16.5 13.8L20.5 20.5L13.3 15.8L12 24L10.7 15.8L3.5 20.5L7.5 13.8L0 12L7.5 10.2L3.5 3.5L10.7 8.2L12 0Z"/>
                             </svg>
@@ -221,7 +213,6 @@
                     </div>
                     <div class="reveal delay-100">
                         <p class="font-bold uppercase tracking-wider text-sm mb-2">Impressões Mensais</p>
-                        <!-- GATILHO ADICIONADO: id="val-impressoes" -->
                         <p class="text-4xl md:text-5xl lg:text-6xl font-bold"><span class="counter" id="val-impressoes" data-target="142">0</span>K</p>
                     </div>
                 </div>
@@ -230,15 +221,24 @@
                     <h3 class="text-3xl md:text-4xl font-serif italic mb-2 text-principal">Relacionamento com a base</h3>
                     <p class="text-detalhe3 font-bold uppercase tracking-widest text-sm mb-8">Média por Post</p>
                     <div class="space-y-6 text-xl md:text-2xl font-bold">
-                        <div class="flex justify-between items-end border-b border-principal/20 pb-2 hover:border-principal hover:pr-2 transition-all duration-300"><span class="uppercase text-sm md:text-base tracking-widest">Alcance</span><span>10.8K</span></div>
-                        <!-- GATILHO ADICIONADO: id="val-alcance" -->
-                        <div class="flex justify-between items-end border-b border-principal/20 pb-2 hover:border-principal hover:pr-2 transition-all duration-300"><span class="uppercase text-sm md:text-base tracking-widest">Alcance</span><span class="counter" id="val-alcance" data-target="10.8">0</span>K</span></div>
                         
-                        <!-- GATILHO ADICIONADO: id="val-salvos" -->
-                        <div class="flex justify-between items-end border-b border-principal/20 pb-2 hover:border-principal hover:pr-2 transition-all duration-300"><span class="uppercase text-sm md:text-base tracking-widest">Salvamento</span><span class="counter" id="val-salvos" data-target="405">0</span></div>
+                        <!-- ALCANCE CORRIGIDO E ÚNICO -->
+                        <div class="flex justify-between items-end border-b border-principal/20 pb-2 hover:border-principal hover:pr-2 transition-all duration-300">
+                            <span class="uppercase text-sm md:text-base tracking-widest">Alcance</span>
+                            <span><span class="counter" id="val-alcance" data-target="10.8">0</span>K</span>
+                        </div>
                         
-                        <!-- GATILHO ADICIONADO: id="val-compartilhamentos" -->
-                        <div class="flex justify-between items-end border-b border-principal/20 pb-2 hover:border-principal hover:pr-2 transition-all duration-300"><span class="uppercase text-sm md:text-base tracking-widest">Compartilhamento</span><span class="counter" id="val-compartilhamentos" data-target="183">0</span></div>
+                        <!-- SALVAMENTO -->
+                        <div class="flex justify-between items-end border-b border-principal/20 pb-2 hover:border-principal hover:pr-2 transition-all duration-300">
+                            <span class="uppercase text-sm md:text-base tracking-widest">Salvamento</span>
+                            <span class="counter" id="val-salvos" data-target="405">0</span>
+                        </div>
+                        
+                        <!-- COMPARTILHAMENTO -->
+                        <div class="flex justify-between items-end border-b border-principal/20 pb-2 hover:border-principal hover:pr-2 transition-all duration-300">
+                            <span class="uppercase text-sm md:text-base tracking-widest">Compartilhamento</span>
+                            <span class="counter" id="val-compartilhamentos" data-target="183">0</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -315,7 +315,7 @@
             </div>
 
             <div class="text-center reveal">
-                <p class="text-sm md:text-lg font-medium text-principal mb-6">Todos os formatos incluem roteiro, direção de arte, gravação e 1 revisão.</p>
+                <p class="text-sm md:text-lg font-medium text-principal mb-6">Todos os formatos incluem roteiro, direção de arte, gravação e 1 revision.</p>
                 <a href="mailto:casacuradorias@gmail.com" class="inline-block bg-principal text-fundo font-bold py-3 px-8 md:py-4 md:px-12 rounded-full shadow-[4px_4px_0_#ef4f28] hover:translate-x-1 hover:translate-y-1 hover:shadow-none hover:bg-detalhe1 hover:text-white transition-all duration-200 uppercase tracking-widest text-xs md:text-sm">
                     Solicitar Orçamento
                 </a>
