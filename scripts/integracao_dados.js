@@ -35,6 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('val-impressoes').setAttribute('data-target', impressoesK);
         
         document.getElementById('val-engajamento').setAttribute('data-target', dados['Taxa_Engajamento_%']);
+        
+        // --- NOVA LINHA ADICIONADA AQUI: Média de Alcance por Post ---
+        const alcanceK = (dados.Media_Alcance_Post / 1000).toFixed(1);
+        document.getElementById('val-alcance').setAttribute('data-target', alcanceK);
+        // -------------------------------------------------------------
+
         document.getElementById('val-salvos').setAttribute('data-target', dados.Media_Salvos_Post);
         document.getElementById('val-compartilhamentos').setAttribute('data-target', dados.Media_Compartilhamentos_Post);
 
